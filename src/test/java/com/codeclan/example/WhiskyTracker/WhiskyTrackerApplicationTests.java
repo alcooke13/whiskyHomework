@@ -1,7 +1,9 @@
 package com.codeclan.example.WhiskyTracker;
 
 import com.codeclan.example.WhiskyTracker.models.Distillery;
+import com.codeclan.example.WhiskyTracker.models.Whisky;
 import com.codeclan.example.WhiskyTracker.repositories.DistilleryRepository;
+import com.codeclan.example.WhiskyTracker.repositories.WhiskyRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,9 @@ public class WhiskyTrackerApplicationTests {
 	@Autowired
 	DistilleryRepository distilleryRepository;
 
+	@Autowired
+	WhiskyRepository whiskyRepository;
+
 	@Test
 	public void contextLoads() {
 	}
@@ -29,6 +34,12 @@ public class WhiskyTrackerApplicationTests {
 	public void canGetAllDistilleries(){
 		List<Distillery> foundDistil = distilleryRepository.findAll();
 		assertEquals(13, foundDistil.size());
+	}
+
+	@Test
+	public void canGetAllWhisky(){
+		List<Whisky> foundWhiskey = whiskyRepository.findAll();
+		assertEquals(22, foundWhiskey.size());
 	}
 
 }
